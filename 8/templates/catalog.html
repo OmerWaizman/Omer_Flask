@@ -1,0 +1,21 @@
+
+    {%extends 'base.html'%}
+    {%block title%}
+        Catalogs
+    {%endblock%}
+
+    {%block tohen%}
+    <h1>Welcome to Catalog page!</h1>
+
+    <form action="/catalog" method="GET">
+        Product:<input name="product" type="text">
+        Size:<input name="size" type="text">
+        <input type="submit">
+    </form>
+    {% if product%}
+        <h3>You picked the following product:  {{product}}</h3>
+    {%endif%}
+    {% if size%}
+        <h3>You picked the following size: {{size}}</h3>
+    {%endif%}
+    {%endblock%}

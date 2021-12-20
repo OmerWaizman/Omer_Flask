@@ -1,0 +1,23 @@
+
+    {%extends 'base.html'%}
+
+    {%block title%}
+        log-in
+    {%endblock%}
+
+    {%block tohen%}
+
+
+    {%if session.username %}
+            <h3>Welcome back, {{session.username}}</h3>
+    {%else%}
+        <h1>Please Login</h1>
+
+        <form action="/login" method="POST">
+            User Name:<input name="username" type="text">
+            Password:<input name="password" type="password">
+            <input type="submit">
+        </form>
+    {%endif%}
+
+    {%endblock%}
