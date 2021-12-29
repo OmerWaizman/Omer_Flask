@@ -1,0 +1,54 @@
+
+#grid-con{
+    display: grid;
+    grid-template-areas:
+'button button button button button'
+'header header header header header  '
+'tool-bar tool-bar menu menu menu'
+'text text text text text '
+'text text text text text '
+'text text text text text '
+}
+
+#header{
+    grid-area: header;
+    background-color: snow;
+  height: 10vh;
+  width: 100%;
+}
+
+
+#about{
+    grid-area: tool-bar;
+    background-color: blanchedalmond;
+    height: 20vh;
+    margin: 10px;
+    font-size: xx-large;
+}
+
+#catalog{
+    grid-area: menu;
+    background-color: seagreen;
+    height: 20vh;
+    margin: 10px;
+    font-size: xx-large;
+
+}
+
+#text{
+    grid-area:text;
+    background-color: tan;
+    height: 50vh;
+    margin: 10px;
+    font-size: xxx-large;
+}
+
+body
+    h1{
+    text-align: center;
+    color: purple;
+    }
+    #h2{
+    background-color: red
+
+

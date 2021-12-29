@@ -1,0 +1,51 @@
+    {%extends 'base.html'%}
+    {%block title%}
+        Assignment9
+    {%endblock%}
+
+    {%block tohen%}
+
+    {%if session.username %}
+    {%else%}
+            <h1>Registration</h1>
+
+                <form action="/Assignment9" method="POST">
+                    User Name:<input name="username" type="text">
+                    Email:<input name="email" type="email">
+                    <input type="submit">
+                </form>
+    {%endif%}
+        <H1>search</H1>
+        <form action="/Assignment9" method="GET" name="search">
+           Search Username or Email<br> <input type="text" placeholder="Search.." name="usersearch">
+            <button type="submit"><i>Search</i></button>
+        </form>
+        <br>
+        <br>
+    {% if search_user%}
+            {% for key, value in users.items() %}
+                {% for k, v in value.items() %}
+                    {% if search_user in v %}
+                        {{v}}
+                    {%endif%}
+
+                {%endfor%}
+            {% endfor %}
+    {%endif%}
+
+    {% if search_user==''%}
+        {% for key, value in users.items() %}
+            {% for k, v in value.items() %}
+                {{v}}
+            {%endfor%}
+            <br>
+        {% endfor %}
+    {%endif%}
+
+
+    <br>
+    <br>
+    <br>
+
+
+    {%endblock%}
