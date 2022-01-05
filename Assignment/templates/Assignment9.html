@@ -1,51 +1,47 @@
-    {%extends 'base.html'%}
-    {%block title%}
-        Assignment9
-    {%endblock%}
+{% extends 'base.html' %}
+{% block title%}
+assignment9
+{% endblock %}
 
-    {%block tohen%}
-
-    {%if session.username %}
-    {%else%}
-            <h1>Registration</h1>
-
-                <form action="/Assignment9" method="POST">
-                    User Name:<input name="username" type="text">
-                    Email:<input name="email" type="email">
-                    <input type="submit">
-                </form>
-    {%endif%}
-        <H1>search</H1>
-        <form action="/Assignment9" method="GET" name="search">
-           Search Username or Email<br> <input type="text" placeholder="Search.." name="usersearch">
-            <button type="submit"><i>Search</i></button>
-        </form>
-        <br>
-        <br>
-    {% if search_user%}
-            {% for key, value in users.items() %}
-                {% for k, v in value.items() %}
-                    {% if search_user in v %}
-                        {{v}}
-                    {%endif%}
-
-                {%endfor%}
-            {% endfor %}
-    {%endif%}
-
-    {% if search_user==''%}
-        {% for key, value in users.items() %}
-            {% for k, v in value.items() %}
-                {{v}}
-            {%endfor%}
-            <br>
-        {% endfor %}
-    {%endif%}
+{% block body %}
+    <h1>Choose Form And Fill The Details</h1>
+    <h2>Search</h2>
+<form action='/Assignment9' method="get">
+    Name:<input type="text" name="name"> <br>
+    Email:<input type="text" name="email"> <br>
+    <input type="hidden" name="is_submit" value="1">
+    <input type="submit" >    <br>
 
 
-    <br>
-    <br>
-    <br>
+    {% if name %}
+        <h2>We Found You !</h2>
+        <h3>Name: {{ name|upper }}</h3>
+        <h3>Email: {{ email }}</h3>
+                {% elif(users) %}
+                    <h3>Available Accounts:</h3>
+                      {% for user in users  %}
+                        <li>{{ user }}</li>
+                        {% endfor %}
+
+    {% endif %}
+</form>
+
+    <hr>
+
+    <h2>Registration</h2>
+    <form action='/Assignment9' method="post">
+    {% if session.username=='' %}
+        Name:<input type="text" name="username"> <br>
+        Email:<input type="text" name="email">        <br>
+        Password <input type="password" name="password"> <br>
+        <input type="submit" >
+         {% else  %}
+        <h3>Your Registration Succeeded  {{ session.username }}</h3>
+        {% endif %}
+    </form>
 
 
-    {%endblock%}
+
+
+
+{% endblock %}
