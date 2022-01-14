@@ -1,54 +1,27 @@
-
-#grid-con{
-    display: grid;
-    grid-template-areas:
-'button button button button button'
-'header header header header header  '
-'tool-bar tool-bar menu menu menu'
-'text text text text text '
-'text text text text text '
-'text text text text text '
+* {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    color:darkgreen;
 }
 
-#header{
-    grid-area: header;
-    background-color: snow;
-  height: 10vh;
-  width: 100%;
+body {
+    margin: unset;
+    background-color: lightblue;
 }
 
-
-#about{
-    grid-area: tool-bar;
-    background-color: blanchedalmond;
-    height: 20vh;
-    margin: 10px;
-    font-size: xx-large;
+.header {
+    background-color: beige;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
 }
 
-#catalog{
-    grid-area: menu;
-    background-color: seagreen;
-    height: 20vh;
-    margin: 10px;
-    font-size: xx-large;
-
+.header a {
+    padding: 0px 8px;
+    color: gray;
+    text-decoration: unset;
 }
 
-#text{
-    grid-area:text;
-    background-color: tan;
-    height: 50vh;
-    margin: 10px;
-    font-size: xxx-large;
+.header a:hover {
+    color: #949494;
 }
-
-body
-    h1{
-    text-align: center;
-    color: purple;
-    }
-    #h2{
-    background-color: red
-
-
